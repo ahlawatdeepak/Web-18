@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cont{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: repeat(4,auto);
+            gap: 20px;
+
+        }
+        p+img{
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        frontend
+    </h1>
+    <div id="cont"></div>
+</body>
+</html>
+<script>
+
+var arr=JSON.parse(localStorage.getItem("data"));
+console.log(arr);
+
+arr.forEach(function (el) {
+
+    var box=document.createElement("div");
+
+    var im=document.createElement("img");
+    im.setAttribute("src",el.imge);
+
+    var na=document.createElement("h3");
+    na.innerText=el.name1;
+
+    var ro=document.createElement("p");
+    ro.innerText=el.role1;
+
+    var log=document.createElement("img");
+    log.setAttribute("src",el.logo1);
+
+    box.append(im,na,ro,log)
+    document.querySelector("#cont").append(box);
+    
+});
+
+</script>
